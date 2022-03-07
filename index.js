@@ -4,12 +4,14 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 import routes from './routes/products.js'
+import compression from 'compression'
 
 const app = express()
 dotenv.config()
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
+app.use(compression())
 app.use(cors());
 
 app.use('/p', routes)
