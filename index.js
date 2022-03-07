@@ -14,10 +14,6 @@ app.use(cors());
 
 app.use('/p', routes, haltOnTimedout)
 
-function haltOnTimedout (req, res, next) {
-  if (!req.timedout) next()
-}
-
 app.get('/', (req, res) => {
   res.send('Hello to E-Commerce API!')
 })

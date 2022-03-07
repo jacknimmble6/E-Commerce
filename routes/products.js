@@ -5,22 +5,21 @@ randomSneaker, randomProduct } from '../controllers/product.js'
 import { registerUser, loginUser, findUser, updateUser, deleteUserById,
 getUserOrders } from '../controllers/users.js'
 import { createOrder,  getOrder } from '../controllers/order.js'
-import timeout from 'connect-timeout'
 
 const router = express.Router()
 
-router.post('/createProduct', timeout('5s'), createProduct)
-router.get('/products', timeout('5s'), getProducts)
-router.get('/product/detail/:id', timeout('5s'), getProduct)
-router.get('/products/sneakers', timeout('5s'), getSneakers)
-router.get('/products/jackets', timeout('5s'), getJackets)
-router.get('/products/random', timeout('5s'), randomProduct)
-router.get('/products/random/accessory', timeout('5s'), randomAccessory)
-router.get('/products/random/jacket', timeout('5s'), randomJacket)
-router.get('/products/random/sneaker', timeout('5s'), randomSneaker)
-router.get('/products/accessories', timeout('5s'), getAccessories)
-router.patch('/products/:id/update', timeout('5s'), updateProducts)
-router.delete('/products/:id/delete', timeout('5s'), deleteProduct)
+router.post('/createProduct', createProduct)
+router.get('/products', getProducts)
+router.get('/product/detail/:id', getProduct)
+router.get('/products/sneakers', getSneakers)
+router.get('/products/jackets', getJackets)
+router.get('/products/random', randomProduct)
+router.get('/products/random/accessory', randomAccessory)
+router.get('/products/random/jacket', randomJacket)
+router.get('/products/random/sneaker', randomSneaker)
+router.get('/products/accessories', getAccessories)
+router.patch('/products/:id/update', updateProducts)
+router.delete('/products/:id/delete', deleteProduct)
 
 router.post('/createUser', registerUser)
 router.post('/loginUser', loginUser)
